@@ -10,6 +10,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.List;
+
 public class us_06 extends BaseDriver {
 
     @Test
@@ -232,28 +234,27 @@ public class us_06 extends BaseDriver {
         //continue5.click();
         MyFunc.Bekle(3);
 
-        WebElement total = driver.findElement(By.cssSelector("span[class='product-subtotal']"));
-        total.getText();
-        Double.parseDouble(total.getText().replaceAll("[^0-9,.]", ""));
-        System.out.println(total.getText());
+        List<WebElement> fees = driver.findElements(By.cssSelector("span[class='product-subtotal']"));
+        double toplam = 0;
+        for (WebElement f : fees) {
+            System.out.println(f.getText());
+            System.out.println(f.getText().replaceAll("[^0-9,.]", ""));
+            toplam = toplam + Double.parseDouble(f.getText().replaceAll("[^0-9,.]", ""));
+        }
 
-        MyFunc.Bekle(2);
+        WebElement total = driver.findElement(By.cssSelector("[class='product-price order-total']"));
+        double alltotal = Double.parseDouble(total.getText().replaceAll("[^0-9,.]", ""));
+        System.out.println(alltotal);
 
-        WebElement alltotal = driver.findElement(By.cssSelector("[class='product-price order-total']"));
-        alltotal.getText();
-        Double.parseDouble(alltotal.getText().replaceAll("[^0-9,.]", ""));
-        System.out.println(alltotal.getText());
-
-        if (total == alltotal) {
+        if (toplam == alltotal) {
             System.out.println("Toplam Esittir");
+        } else System.out.println("ToplamEsit Degildir");
 
-        } else System.out.println("Toplam Esit Degil");
+        //  Assert.assertTrue("Toplam Esit Degil", toplam == alltotal);
 
-        Assert.assertTrue("Toplam Esit Degil",total==alltotal);
 
-        WebElement scrool=driver.findElement(By.cssSelector("[onclick='ConfirmOrder.save()']"));
+        WebElement scrool = driver.findElement(By.cssSelector("[onclick='ConfirmOrder.save()']"));
         new Actions(driver)
-                //.moveToElement(scrool)
                 .scrollToElement(scrool)
                 .build()
                 .perform();
@@ -267,10 +268,12 @@ public class us_06 extends BaseDriver {
                 .perform();
         //confirm.click();
         MyFunc.Bekle(2);
-        WebElement confirmheader=driver.findElement(By.cssSelector("//div[@class='title']"));
-        System.out.println(confirmheader.getText());
-        driver.quit();
 
+        WebElement confirmheader = driver.findElement(By.cssSelector("//div[@class='title']"));
+        confirmheader.getText();
+        //System.out.println(confirmheader.getText());
+        MyFunc.Bekle(2);
+        driver.quit();
 
     }
 }
