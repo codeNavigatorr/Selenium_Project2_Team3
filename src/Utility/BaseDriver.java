@@ -12,7 +12,7 @@ public class BaseDriver {
     //bunun sarti extends olmasi ve basta yer almasi
     static // tearStart()
     {
-        ChromeDriver driver = new ChromeDriver();
+       driver = new ChromeDriver();
 
         //driver.manage().window().maximize(); // Ekranı max yapıyor.
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20)); // 20 sn mühlet: sayfayı yükleme mühleti
