@@ -77,7 +77,8 @@ public class us_06 extends BaseDriver {
         //booksButon.click();
         MyFunc.Bekle(3);
 
-        WebElement addToCard = driver.findElement(By.cssSelector("body > div.master-wrapper-page > div.master-wrapper-content > div.master-wrapper-main > div.center-2 > div.page.category-page > div.page-body > div.product-grid > div:nth-child(1) > div > div.details > div.add-info > div.buttons > input"));
+        WebElement addToCard = driver.findElement(By.xpath("(//input[@value='Add to cart'])[1]"));
+        //body > div.master-wrapper-page > div.master-wrapper-content > div.master-wrapper-main > div.center-2 > div.page.category-page > div.page-body > div.product-grid > div:nth-child(1) > div > div.details > div.add-info > div.buttons > input
         new Actions(driver)
                 .moveToElement(addToCard)
                 .click()
@@ -269,11 +270,10 @@ public class us_06 extends BaseDriver {
         //confirm.click();
         MyFunc.Bekle(2);
 
-        WebElement confirmheader = driver.findElement(By.cssSelector("//div[@class='title']"));
-        confirmheader.getText();
-        //System.out.println(confirmheader.getText());
-        MyFunc.Bekle(2);
-        driver.quit();
+        WebElement confirmheader = driver.findElement(By.xpath("//strong[text()='Your order has been successfully processed!']"));
+        //confirmheader.getText();
+        System.out.println(confirmheader.getText());
+       BekleKapat();
 
     }
 }
