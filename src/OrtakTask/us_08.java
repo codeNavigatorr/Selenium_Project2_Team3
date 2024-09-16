@@ -243,8 +243,8 @@ public class us_08 extends BaseDriver {
                 .click()
                 .build()
                 .perform();
-        MyFunc.Bekle(2);
-        BekleKapat();
+       MyFunc.Bekle(3);
+       driver.quit();
 
 
 
