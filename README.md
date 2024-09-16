@@ -1,12 +1,11 @@
 DemoWebShop Selenium Test Otomasyonu
-Bu proje, Tricentis Demo WebShop üzerinde otomasyon testleri geliştirmek amacıyla oluşturulmuştur. Selenium WebDriver kullanarak web mağazasındaki kullanıcı işlemlerini otomatikleştiriyoruz. Test senaryoları, kullanıcı hikayelerine dayalı olarak yazılmış ve proje Agile yöntemlerle yönetilmiştir.
+Bu proje, Tricentis Demo WebShop üzerinde otomasyon testleri geliştirmek amacıyla oluşturulmuştur. Selenium WebDriver kullanarak web mağazasındaki kullanıcı işlemlerini otomatikleştiriyoruz. Test senaryoları,
+kullanıcı hikayelerine dayalı olarak yazılmış ve proje Agile yöntemlerle yönetilmiştir.
 
 Proje Bilgileri
 Teknolojiler:
-
 Java
 Selenium WebDriver
-TestNG
 IntelliJ IDEA
 Maven
 
