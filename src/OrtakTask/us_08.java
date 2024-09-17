@@ -244,7 +244,125 @@ public class us_08 extends BaseDriver {
                 .build()
                 .perform();
        MyFunc.Bekle(3);
-       driver.quit();
+
+        WebElement billingAdress = driver.findElement(By.id("billing-address-select"));
+        System.out.println(billingAdress.getText());
+        MyFunc.Bekle(2);
+
+
+        WebElement continue2 = driver.findElement(By.cssSelector("[class='button-1 new-address-next-step-button'][onclick='Billing.save()']"));
+        new Actions(driver)
+                .moveToElement(continue2)
+                .click()
+                .build()
+                .perform();
+        MyFunc.Bekle(3);
+
+
+        WebElement inStorePickup = driver.findElement(By.id("PickUpInStore"));
+        new Actions(driver)
+                .moveToElement(inStorePickup)
+                .click()
+                .build()
+                .perform();
+        MyFunc.Bekle(3);
+
+        WebElement continue3 = driver.findElement(By.cssSelector("[onclick='Shipping.save()']"));
+        new Actions(driver)
+                .moveToElement(continue3)
+                .click()
+                .build()
+                .perform();
+        MyFunc.Bekle(3);
+
+        WebElement creditCard = driver.findElement(By.id("paymentmethod_2"));
+        new Actions(driver)
+                .moveToElement(creditCard)
+                .click()
+                .build()
+                .perform();
+
+        WebElement continue4 = driver.findElement(By.cssSelector("[class='button-1 payment-method-next-step-button']"));
+        new Actions(driver)
+                .moveToElement(continue4)
+                .click()
+                .build()
+                .perform();
+        MyFunc.Bekle(3);
+
+        WebElement selectCard = driver.findElement(By.id("CreditCardType"));
+        Select card = new Select(selectCard);
+        card.selectByValue("Visa");
+        MyFunc.Bekle(3);
+
+        WebElement cardHolderName = driver.findElement(By.xpath("//input[@id='CardholderName' and @style='Width: 165px;']"));
+        new Actions(driver)
+                .moveToElement(cardHolderName)
+                .click()
+                .sendKeys("Team3")
+                .build()
+                .perform();
+        MyFunc.Bekle(2);
+
+        WebElement cardNumber = driver.findElement(By.cssSelector("input[maxlength='22']"));
+        new Actions(driver)
+                .moveToElement(cardNumber)
+                .click()
+                .sendKeys("4242 4242 4242 4242")
+                .build()
+                .perform();
+        MyFunc.Bekle(2);
+
+        WebElement expirationDate = driver.findElement(By.xpath("//select[@id='ExpireMonth']"));
+        Select menu3 = new Select(expirationDate);
+        menu3.selectByValue("1");
+        MyFunc.Bekle(2);
+
+        WebElement expirationDate2 = driver.findElement(By.id("ExpireYear"));
+        Select menu4 = new Select(expirationDate2);
+        menu4.selectByValue("2032");
+        MyFunc.Bekle(2);
+
+
+        WebElement cardCode = driver.findElement(By.cssSelector("input[maxlength='4']"));
+        new Actions(driver)
+                .moveToElement(cardCode)
+                .click()
+                .sendKeys("123")
+                .build()
+                .perform();
+        MyFunc.Bekle(2);
+
+        WebElement continue5 = driver.findElement(By.cssSelector("input[onclick='PaymentInfo.save()']"));
+        new Actions(driver)
+                .moveToElement(continue5)
+                .click()
+                .build()
+                .perform();
+        MyFunc.Bekle(3);
+
+
+        WebElement confirm = driver.findElement(By.cssSelector("[onclick='ConfirmOrder.save()']"));
+        new Actions(driver)
+                .moveToElement(confirm)
+                .click()
+                .build()
+                .perform();
+        MyFunc.Bekle(2);
+
+        WebElement confirmheader = driver.findElement(By.xpath("//strong[text()='Your order has been successfully processed!']"));
+        System.out.println(confirmheader.getText());
+
+
+
+
+
+        BekleKapat();
+
+
+
+
+
 
 
 
