@@ -7,6 +7,10 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 import static Utility.BaseDriver.driver;
 
@@ -54,7 +58,7 @@ public class muhammed extends BaseDriver {
         aksiyon
                 .moveToElement(email)
                 .click()
-                .sendKeys("muhammetyazici@gmail.com")
+                .sendKeys("bilalyazici@gmail.com")
                 .build()
                 .perform();
 
@@ -65,7 +69,7 @@ public class muhammed extends BaseDriver {
         aksiyon
                 .moveToElement(password)
                 .click()
-                .sendKeys("Password123")
+                .sendKeys("bilal123")
                 .build()
                 .perform();
 
@@ -78,7 +82,32 @@ public class muhammed extends BaseDriver {
                 .click()
                 .build()
                 .perform();
-        ;
+
+        WebDriverWait wait  = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@name='pollanswers-1' and @value='1']")));
+
+        WebElement excellent2 = driver.findElement(By.xpath("//*[@name='pollanswers-1' and @value='1']"));
+        aksiyon
+                .click(excellent2)
+                .build()
+                .perform();
+
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='vote-poll-1']")));
+        WebElement vote2 = driver.findElement(By.xpath("//*[@id='vote-poll-1']"));
+        aksiyon
+                .click(vote2)
+                .build()
+                .perform();
+
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='poll-block-1']/ul")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='poll-block-1']/ul/following-sibling::span")));
+
+        WebElement anketsonuc = driver.findElement(By.xpath("//div[@id='poll-block-1']/ul"));
+        WebElement oysayisi = driver.findElement(By.xpath("//div[@id='poll-block-1']/ul/following-sibling::span"));
+
+        Assert.assertTrue("Anket sonuçları görüntülenemiyor", anketsonuc.isDisplayed());
+        Assert.assertTrue("Oy kullanan sayısı görüntülenemiyor",oysayisi.isDisplayed());
 
         BekleKapat();
 
