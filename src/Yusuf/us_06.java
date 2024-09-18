@@ -1,4 +1,5 @@
 package Yusuf;
+
 import Utility.MyFunc;
 import org.junit.Assert;
 import org.junit.Test;
@@ -15,8 +16,7 @@ import java.util.List;
 public class us_06 extends BaseDriver {
 
     @Test
-    public void Test1()
-    {
+    public void Test1() {
         driver.get("https://demowebshop.tricentis.com/");
         MyFunc.Bekle(5);
 
@@ -127,22 +127,85 @@ public class us_06 extends BaseDriver {
         //checkout.click();
         MyFunc.Bekle(2);
 
-        WebElement billingAdress=driver.findElement(By.id("billing-address-select"));
-        //billingAdress.getText();
-        System.out.println(billingAdress.getText());
+
+        WebElement billingAdress = driver.findElement(By.cssSelector("[name='billing_address_id']"));
+        Select biling = new Select(billingAdress);
+        biling.selectByVisibleText("New Address");
+        MyFunc.Bekle(2);
+
+        WebElement company = driver.findElement(By.id("BillingNewAddress_Company"));
+        new Actions(driver)
+                .moveToElement(company)
+                .click()
+                .sendKeys("TechnoStudy")
+                .build()
+                .perform();
+        MyFunc.Bekle(2);
+
+        WebElement counttry = driver.findElement(By.id("BillingNewAddress_CountryId"));
+        Select ulke = new Select(counttry);
+        ulke.selectByValue("2");
+        MyFunc.Bekle(2);
+
+        WebElement statte = driver.findElement(By.id("BillingNewAddress_StateProvinceId"));
+        Select stte = new Select(statte);
+        stte.selectByValue("65");
+        MyFunc.Bekle(2);
+
+        WebElement cityy = driver.findElement(By.id("BillingNewAddress_City"));
+        new Actions(driver)
+                .moveToElement(cityy)
+                .click()
+                .sendKeys("Istanbul")
+                .build()
+                .perform();
         MyFunc.Bekle(2);
 
 
-
-
-        WebElement continue2 = driver.findElement(By.cssSelector("[class='button-1 new-address-next-step-button'][onclick='Billing.save()']"));
+        WebElement adres01 = driver.findElement(By.id("BillingNewAddress_Address1"));
         new Actions(driver)
-                .moveToElement(continue2)
+                .moveToElement(adres01)
+                .click()
+                .sendKeys("Kadikoy")
+                .build()
+                .perform();
+        MyFunc.Bekle(2);
+
+        WebElement adress = driver.findElement(By.id("BillingNewAddress_Address2"));
+        new Actions(driver)
+                .moveToElement(adress)
+                .click()
+                .sendKeys("Her yerde...")
+                .build()
+                .perform();
+        MyFunc.Bekle(2);
+
+        WebElement zipposta = driver.findElement(By.id("BillingNewAddress_ZipPostalCode"));
+        new Actions(driver)
+                .moveToElement(zipposta)
+                .click()
+                .sendKeys("Ct-034")
+                .build()
+                .perform();
+        MyFunc.Bekle(2);
+
+
+        WebElement phoneNumber = driver.findElement(By.id("BillingNewAddress_PhoneNumber"));
+        new Actions(driver)
+                .moveToElement(phoneNumber)
+                .click()
+                .sendKeys("0212-000-00-00")
+                .build()
+                .perform();
+        MyFunc.Bekle(2);
+        WebElement continueAdres = driver.findElement(By.xpath("(//input[@class='button-1 new-address-next-step-button'])[1]"));
+        new Actions(driver)
+                .moveToElement(continueAdres)
                 .click()
                 .build()
                 .perform();
-        //continue2.click();
         MyFunc.Bekle(3);
+
 
         WebElement inStorePickup = driver.findElement(By.id("PickUpInStore"));
         new Actions(driver)
@@ -151,16 +214,12 @@ public class us_06 extends BaseDriver {
                 .build()
                 .perform();
         //inStorePickup.click();
+        MyFunc.Bekle(4);
+
+        WebElement instoreContinue = driver.findElement(By.cssSelector("[onclick='Shipping.save()']"));
+        instoreContinue.click();
         MyFunc.Bekle(3);
 
-        WebElement continue3 = driver.findElement(By.cssSelector("[onclick='Shipping.save()']"));
-        new Actions(driver)
-                .moveToElement(continue3)
-                .click()
-                .build()
-                .perform();
-        //continue3.click();
-        MyFunc.Bekle(3);
 
         WebElement creditCard = driver.findElement(By.id("paymentmethod_2"));
         new Actions(driver)
@@ -273,7 +332,8 @@ public class us_06 extends BaseDriver {
         WebElement confirmheader = driver.findElement(By.xpath("//strong[text()='Your order has been successfully processed!']"));
         //confirmheader.getText();
         System.out.println(confirmheader.getText());
-       BekleKapat();
+        BekleKapat();
 
     }
 }
+
