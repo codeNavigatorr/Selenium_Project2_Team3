@@ -2,14 +2,12 @@ package Sefacan;
 
 import Utility.BaseDriver;
 import Utility.MyFunc;
-import org.checkerframework.checker.units.qual.A;
-import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-public class sefacan extends BaseDriver {
+public class US_04 extends BaseDriver {
 
     @Test
     public void test1()
