@@ -8,7 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-public class TC_20301_Logout extends BaseDriver {
+public class US_03 extends BaseDriver {
 
     @Test
     public void Test1() {
