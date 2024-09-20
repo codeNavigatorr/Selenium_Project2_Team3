@@ -99,4 +99,4 @@ public class US_02 extends BaseDriver {
         Assert.assertTrue("Registration Page değil",result.isDisplayed());
 
         BekleKapat();
-}
+}}

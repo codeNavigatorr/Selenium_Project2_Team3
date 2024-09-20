@@ -1,11 +1,9 @@
 package Yusuf;
 
 import Utility.MyFunc;
-import org.junit.Assert;
 import org.junit.Test;
 
 import Utility.BaseDriver;
-import com.google.common.annotations.VisibleForTesting;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -13,7 +11,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
-public class us_06 extends BaseDriver {
+public class US_06 extends BaseDriver {
 
     @Test
     public void Test1() {
